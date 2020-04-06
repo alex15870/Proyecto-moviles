@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/girly"
+    tools:context=".Registro">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CREA TU CUENTA"
+        android:textAlignment="center"
+        android:textSize="35sp"
+        android:layout_marginTop="60dp"
+        android:textStyle="bold|normal"
+        android:textColor="#673B04"
+        />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="5dp"
+
+
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:hint="Ingrese Usuario"
+        android:background="#FFF"
+        android:textStyle="bold"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="70dp"
+        android:layout_marginTop="50dp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:textStyle="bold"
+        android:hint="Ingrese email"
+        android:background="#FFF"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="70dp"
+        android:layout_marginTop="50dp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:textStyle="bold"
+        android:hint="Ingrese contraseña"
+        android:background="#FFF"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="70dp"
+        android:layout_marginTop="50dp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:textStyle="bold"
+        android:hint="Confirme contraseña"
+        android:background="#FFF"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="70dp"
+        android:layout_marginTop="50dp"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registrar"
+        android:textStyle="bold"
+        android:layout_marginTop="45dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:background="@drawable/round_button"
+
+        />
+
+</LinearLayout>

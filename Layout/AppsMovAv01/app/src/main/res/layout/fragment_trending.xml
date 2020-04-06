@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.slideshow.SlideshowFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Populares"
+        android:layout_marginTop="30dp"
+        android:textAlignment="center"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        />
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="10dp"
+        android:background="#F4FF0E"
+        android:layout_marginRight="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginBottom="10dp"
+        />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="550dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/rounded_layout">
+
+        <GridView
+            android:id="@+id/gridview"
+            android:layout_width="match_parent"
+            android:layout_margin="25dp"
+            android:layout_height="match_parent"
+            android:numColumns="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        >
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Leer Libro"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:textSize="10dp"
+            android:textColor="#FFF"
+            android:background="@drawable/round_button"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Añadir a favoritos"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:textSize="10dp"
+            android:textColor="#FFF"
+            android:background="@drawable/round_button"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>
