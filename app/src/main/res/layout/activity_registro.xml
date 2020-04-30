@@ -56,6 +56,7 @@
         android:background="#FFF"
         android:hint="Ingrese contraseña"
         android:password="true"
+        android:singleLine="true"
         android:textStyle="bold" />
 
     <EditText
@@ -67,6 +68,7 @@
         android:background="#FFF"
         android:hint="Confirme contraseña"
         android:password="true"
+        android:singleLine="true"
         android:textStyle="bold" />
 
     <Button
