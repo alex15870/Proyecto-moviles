@@ -17,12 +17,12 @@
 
     <fragment
         android:id="@+id/nav_trending"
-        android:name="com.example.appsmovav01.ui.Trending.Trending"
+        android:name="com.example.appsmovav01.ui.slideshow.SlideshowFragment"
         tools:layout="@layout/fragment_trending" />
 
     <fragment
         android:id="@+id/nav_favorites"
-        android:name="com.example.appsmovav01.ui.slideshow.SlideshowFragment"
+        android:name="com.example.appsmovav01.ui.Trending.Trending"
         tools:layout="@layout/fragment_favorites" />
 
 
