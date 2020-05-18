@@ -17,18 +17,18 @@
 
     <fragment
         android:id="@+id/nav_trending"
-        android:name="com.example.appsmovav01.ui.slideshow.SlideshowFragment"
+        android:name="com.example.appsmovav01.ui.Trending.TrendingFragment"
         tools:layout="@layout/fragment_trending" />
 
     <fragment
         android:id="@+id/nav_favorites"
-        android:name="com.example.appsmovav01.ui.Trending.Trending"
+        android:name="com.example.appsmovav01.ui.Favoritos.Favoritos"
         tools:layout="@layout/fragment_favorites" />
 
 
     <fragment
         android:id="@+id/nav_profile"
-        android:name="com.example.appsmovav01.ui.profile2.Profile2"
+        android:name="com.example.appsmovav01.ui.profile.Profile"
         tools:layout="@layout/fragment_profile" />
 
 </navigation>

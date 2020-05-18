@@ -34,14 +34,14 @@ class Profile : Fragment() {
             ViewModelProviders.of(this).get(ProfileViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_profile, container, false)
 
-        return root
-
         notasDePrueba()
-
         leerNotas()
-
         adaptador = AdaptadorNotas(root.context,notas)
         listview.adapter=adaptador
+
+        return root
+
+
     }
 
 
