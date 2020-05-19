@@ -13,6 +13,7 @@ import com.example.appsmovav01.Nota
 import com.example.appsmovav01.R
 import com.example.appsmovav01.ui.gallery.GalleryViewModel
 import kotlinx.android.synthetic.main.fragment_profile.*
+import kotlinx.android.synthetic.main.fragment_profile.view.*
 import java.io.*
 
 
@@ -37,7 +38,7 @@ class Profile : Fragment() {
         notasDePrueba()
         leerNotas()
         adaptador = AdaptadorNotas(root.context,notas)
-        listview.adapter=adaptador
+        root.listview.adapter=adaptador
 
         return root
 

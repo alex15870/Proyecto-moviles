@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.example.appsmovav01.DetalleLibro
 import com.example.appsmovav01.R
 import kotlinx.android.synthetic.main.fragment_trending.*
+import kotlinx.android.synthetic.main.fragment_trending.view.*
 import kotlinx.android.synthetic.main.populares.view.*
 
 class TrendingFragment : Fragment() {
@@ -32,30 +33,30 @@ class TrendingFragment : Fragment() {
 
         cargarLibros()
         adapter = LibrosAdapter(root.context, libros)
-        gridviewTrending.adapter = adapter
+        root.gridviewTrending.adapter = adapter
 
 
         return root
     }
 
     fun cargarLibros(){
-        //Cargar películas
-        //libros.add(
-        //   Libro(
-        //        "Metro-2033",
-        //        R.mipmap.metro,
-        //        R.mipmap.metro,
-        //        "En 2013 hay una guerra nuclear y la población superviviente de Moscú decide resguardarse en el subsuelo, dentro de metro moscovita distribuyéndose por los kilómetros de estaciones y túneles. Cada estación se ha organizado socialmente con diferentes estructuras de poder como ciudades estado y se mantiene un cierto orden con diferentes alianzas entre ellas. "
-        //    )
-        //)
-        //libros.add(
-        //    Libro(
-        //        "The fall of reach",
-        //        R.mipmap.reach,
-        //        R.mipmap.reach,
-        //        "La Caída de Reach tiene lugar en el universo de Halo entre el año 2517 hasta los eventos de 2552. En el universo Halo es posible viajar más rápido que la velocidad de la luz, a través del desliespacio; un espacio donde la relatividad especial no aplica. Esto permite a los humanos colonizar cientos de planetas, los cuales son administrados por el Mando Espacial de las Naciones Unidas (UNSC o MENU en español). Sintiéndose reprimidas por el régimen autoritario del UNSC, algunas colonias se rebelan. Por temor a que los rebeldes desintegren el Consejo de Seguridad, los altos mandos militares aprueban el Proyecto SPARTAN-II; un escuadrón secreto de súper soldados para reprimir discretamente la rebelión. "
-        //    )
-        //)
+        //Cargar libros
+        libros.add(
+           Libro(
+                "Metro-2033",
+                R.mipmap.metro,
+                R.mipmap.metro,
+                "En 2013 hay una guerra nuclear y la población superviviente de Moscú decide resguardarse en el subsuelo, dentro de metro moscovita distribuyéndose por los kilómetros de estaciones y túneles. Cada estación se ha organizado socialmente con diferentes estructuras de poder como ciudades estado y se mantiene un cierto orden con diferentes alianzas entre ellas. "
+            )
+        )
+        libros.add(
+            Libro(
+                "The fall of reach",
+                R.mipmap.reach,
+                R.mipmap.reach,
+                "La Caída de Reach tiene lugar en el universo de Halo entre el año 2517 hasta los eventos de 2552. En el universo Halo es posible viajar más rápido que la velocidad de la luz, a través del desliespacio; un espacio donde la relatividad especial no aplica. Esto permite a los humanos colonizar cientos de planetas, los cuales son administrados por el Mando Espacial de las Naciones Unidas (UNSC o MENU en español). Sintiéndose reprimidas por el régimen autoritario del UNSC, algunas colonias se rebelan. Por temor a que los rebeldes desintegren el Consejo de Seguridad, los altos mandos militares aprueban el Proyecto SPARTAN-II; un escuadrón secreto de súper soldados para reprimir discretamente la rebelión. "
+            )
+        )
         libros.add(
             Libro(
                 "Harry potter",
@@ -78,8 +79,8 @@ class TrendingFragment : Fragment() {
 
         override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
             var libro = libros[p0]
-            var inflator = LayoutInflater.from(context)
-            var vista = inflator.inflate(R.layout.fragment_trending, null)
+            var inflator = context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as  LayoutInflater
+            var vista = inflator.inflate(R.layout.populares, null)
             vista.iv_libro.setImageResource(libro.image)
             vista.tv_titulo.setText(libro.titulo)
 

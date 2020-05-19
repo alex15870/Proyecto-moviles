@@ -47,27 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         >
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Leer Libro"
-            android:layout_weight="1"
-            android:layout_margin="10dp"
-            android:textSize="10dp"
-            android:textColor="#FFF"
-            android:background="@drawable/round_button"
-            />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Añadir a favoritos"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            android:textSize="10dp"
-            android:textColor="#FFF"
-            android:background="@drawable/round_button"
-            />
 
     </LinearLayout>
 
