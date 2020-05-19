@@ -31,4 +31,5 @@
         android:name="com.example.appsmovav01.ui.profile.Profile"
         tools:layout="@layout/fragment_profile" />
 
+
 </navigation>

@@ -23,7 +23,7 @@ class pruebas : AppCompatActivity() {
         })
 
         btn_getstarted.setOnClickListener(View.OnClickListener {
-            var intent = Intent(this, FaceLogin::class.java)
+            var intent = Intent(this, GoogleLogin::class.java)
             startActivity(intent)
         })
 

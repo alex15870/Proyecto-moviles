@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import kotlinx.android.synthetic.main.activity_face_login.*
 import kotlinx.android.synthetic.main.activity_i_sesion.*
 import kotlinx.android.synthetic.main.activity_pruebas.*
 
@@ -17,8 +18,5 @@ class ISesion : AppCompatActivity() {
             var intent = Intent(this, MenuPrincipal::class.java)
             startActivity(intent)
         })
-
-
-
     }
 }
