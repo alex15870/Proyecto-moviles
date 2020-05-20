@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.Toast
+import com.example.appsmovav01.ui.profile.Nota
 import kotlinx.android.synthetic.main.perfil.view.*
 import java.io.File
 import java.lang.Exception

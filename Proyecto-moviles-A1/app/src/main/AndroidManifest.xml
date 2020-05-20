@@ -20,7 +20,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Colvidada" />
         <activity android:name=".ISesion" />
-        <activity android:name=".pruebas" />
+        <activity android:name=".Pprincipal" />
         <activity android:name=".Inicio">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

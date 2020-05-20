@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "324825711977",
+    "firebase_url": "https://inicio-helu.firebaseio.com",
+    "project_id": "inicio-helu",
+    "storage_bucket": "inicio-helu.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:324825711977:android:dba3f29137f6499e2c69f8",
+        "android_client_info": {
+          "package_name": "com.example.appsmovav01"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "324825711977-34nnces2n4nh84um6d6kkja53n69qsk3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.appsmovav01",
+            "certificate_hash": "013d97eb19c8f1e3dc3e28ec7deee3e8a57f3c9e"
+          }
+        },
+        {
+          "client_id": "324825711977-nqg0rtsoduf2ftcl75cvlraovimnl7ss.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVO3-At-Es00RemaUBCgG1wEtTWESA9P4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "324825711977-nqg0rtsoduf2ftcl75cvlraovimnl7ss.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

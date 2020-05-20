@@ -25,19 +25,9 @@
 
 
         />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:hint="Ingrese Usuario"
-        android:background="@drawable/rounder_et"
-        android:textStyle="bold"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="70dp"
-        android:layout_marginTop="50dp"
-        android:textColor="#000"
-        />
 
     <EditText
+        android:id="@+id/et_correo_reg"
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:textStyle="bold"
@@ -49,6 +39,7 @@
         />
 
     <EditText
+        android:id="@+id/et_contra_reg"
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:layout_marginLeft="50dp"
@@ -61,6 +52,7 @@
         android:textStyle="bold" />
 
     <EditText
+        android:id="@+id/et_contra2_reg"
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:layout_marginLeft="50dp"
@@ -73,6 +65,7 @@
         android:textStyle="bold" />
 
     <Button
+        android:id="@+id/btn_registrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Registrar"

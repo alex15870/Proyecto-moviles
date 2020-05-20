@@ -13,7 +13,7 @@ class Inicio : AppCompatActivity() {
         setContentView(R.layout.activity_main1)
 
         logo_helu.setOnClickListener(View.OnClickListener {
-            var intent = Intent(this, pruebas::class.java)
+            var intent = Intent(this, Pprincipal::class.java)
             startActivity(intent)
         })
 
