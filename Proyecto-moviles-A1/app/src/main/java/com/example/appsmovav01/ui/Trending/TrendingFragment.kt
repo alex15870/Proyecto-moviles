@@ -94,7 +94,7 @@ class TrendingFragment : Fragment() {
                 val database = FirebaseDatabase.getInstance()
                 val myRef = database.getReference("Recientes")
 
-                myRef.child("Libros").child(libro.titulo.toString()).setValue(libro.sinopsis)
+                myRef.push().setValue(libro.titulo.toString())
                 context!!.startActivity(intent)
             }
 

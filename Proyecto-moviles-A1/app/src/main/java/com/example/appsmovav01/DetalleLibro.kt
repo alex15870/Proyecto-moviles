@@ -30,14 +30,14 @@ class DetalleLibro : AppCompatActivity() {
             tv_nombre_libro.setText(bundle.getString("titulo"))
             tv_libro_desc.setText(bundle.getString("sinopsis"))
             nombreLibro = bundle.getString("titulo")
-            header = bundle.getString("sinopsis")
+            header = bundle.getString("titulo")
         }
 
         btn_guardar.setOnClickListener {
             val database = FirebaseDatabase.getInstance()
             val myRef = database.getReference("Favoritos")
 
-            myRef.child("Libro").child(nombreLibro.toString()).setValue(header)
+            myRef.push().setValue(nombreLibro.toString())
 
             //myRef.setValue(nombreLibro)
             Toast.makeText(this,"Guardado con exito",Toast.LENGTH_SHORT).show()

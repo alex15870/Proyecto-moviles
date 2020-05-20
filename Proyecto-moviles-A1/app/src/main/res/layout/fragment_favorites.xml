@@ -7,6 +7,7 @@
     tools:context="com.example.appsmovav01.ui.Trending.Favoritos2">
 
     <TextView
+        android:id="@+id/prueba_texto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Favoritos"

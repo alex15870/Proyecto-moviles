@@ -19,6 +19,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.core.Tag
 import kotlinx.android.synthetic.main.favoritos.view.*
+import kotlinx.android.synthetic.main.fragment_favorites.*
 import kotlinx.android.synthetic.main.fragment_favorites.view.*
 import kotlinx.android.synthetic.main.fragment_trending.view.*
 import kotlinx.android.synthetic.main.populares.view.*
@@ -30,6 +31,8 @@ class Favoritos2 : Fragment() {
 
     var adapter: LibrosAdapter? = null
     var favoritos = ArrayList<Favorito>()
+    var datos = ArrayList<String>()
+    var prueba: String? = null
 
     companion object {
         private const val TAG = "KotlinActivity"
@@ -45,42 +48,52 @@ class Favoritos2 : Fragment() {
         val root = inflater.inflate(R.layout.fragment_favorites, container, false)
 
 
-
+        cargaDatos()
         cargarLibros()
         adapter = LibrosAdapter(root.context, favoritos)
+        //prueba_texto.setText(prueba)
         root.gridview.adapter = adapter
 
 
         return root
     }
 
-    fun cargarLibros(){
-
+    fun cargaDatos(){
         val database = FirebaseDatabase.getInstance()
-        val myRef = database.getReference("Favoritos").child("Libro")
+        val myRef = database.getReference("Favoritos")
 
         myRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
-                val value = dataSnapshot.getValue()
-                /*var data=dataSnapshot!!.children
-                data.forEach{
-                    favoritos.add(Favorito(it.getValue().toString()))
-                }*/
-                Log.d(TAG, "Value is: $value")
-                /*favoritos.add(
-                    Favorito( value.toString(),value.toString())
-                )*/
+                /*val value = dataSnapshot.getValue()
+                Log.d(TAG, "Value is: $value?")
+                Log.d(TAG, "Number of messages: ${dataSnapshot.getValue()}")
+                dataSnapshot.children.forEach { child ->
+                    // Extract Message object from the DataSnapshot
+                    datos.add(child.getValue().toString())
+                }
 
-                /*for (snapshot in dataSnapshot.children) {
-                    val users: Usuarios = snapshot.getValue(Usuarios::class.java)
-                    list_usuarios.add(users)
-                    Log.d(
-                        "users", users.getUser().toString() + "usename -> " +
-                                users.getEmail()
+                if (dataSnapshot.exists()){
+                    var libro:String = dataSnapshot.getValue().toString()
+                    Log.d(TAG,"libro: "+libro)
+                    favoritos.add(
+                        Favorito(
+                            "Libro","prueba")
                     )
                 }*/
+
+                for (postSnapshot in dataSnapshot.children) {
+                    // TODO: handle the post
+                    //var nombreL : String = postSnapshot.getValue().toString()
+                    Log.d(TAG,"libro: "+postSnapshot.getValue().toString())
+                    //datos.add(nombreL)
+                    favoritos.add(Favorito("${postSnapshot.getValue()}","prueba"))
+                    prueba=postSnapshot.getValue().toString()
+                }
+
+
+
 
             }
 
@@ -89,8 +102,18 @@ class Favoritos2 : Fragment() {
                 Log.w(TAG, "Failed to read value.", error.toException())
             }
         })
+    }
+
+    fun cargarLibros(){
 
 
+
+        for (lista in datos){
+            favoritos.add(
+                Favorito(
+                    datos.toString(),"prueba")
+            )
+        }
 
         favoritos.add(
             Favorito(
