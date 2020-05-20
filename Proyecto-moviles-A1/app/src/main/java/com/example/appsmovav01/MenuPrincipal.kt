@@ -12,6 +12,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import com.example.appsmovav01.ui.Trending.Favoritos2
+import com.example.appsmovav01.ui.Trending.TrendingFragment
+import com.example.appsmovav01.ui.Trending.TrendingViewModel
 import com.example.appsmovav01.ui.gallery.GalleryFragment
 import com.example.appsmovav01.ui.home.HomeFragment
 import com.example.appsmovav01.ui.profile.Profile
@@ -117,7 +119,7 @@ class MenuPrincipal : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         if (id == com.example.appsmovav01.R.id.nav_home) {
             fragmentManager.beginTransaction().replace(com.example.appsmovav01.R.id.contenedor, HomeFragment()).commit()
         } else if (id == com.example.appsmovav01.R.id.nav_trending) {
-            fragmentManager.beginTransaction().replace(com.example.appsmovav01.R.id.contenedor, Favoritos2()).commit()
+            fragmentManager.beginTransaction().replace(com.example.appsmovav01.R.id.contenedor, TrendingFragment()).commit()
         } else if (id == com.example.appsmovav01.R.id.nav_profile) {
             fragmentManager.beginTransaction().replace(com.example.appsmovav01.R.id.contenedor, Profile()).commit()
         } else if (id == com.example.appsmovav01.R.id.nav_favorites) {

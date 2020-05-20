@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.populares.view.*
 
 class TrendingFragment : Fragment() {
 
-    private lateinit var favoritos2ViewModel: Favoritos2ViewModel
+    private lateinit var TrendingViewModel: TrendingViewModel
 
     var adapter: LibrosAdapter? = null
     var libros = ArrayList<Libro>()
@@ -27,8 +27,8 @@ class TrendingFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        favoritos2ViewModel =
-            ViewModelProviders.of(this).get(Favoritos2ViewModel::class.java)
+        TrendingViewModel =
+            ViewModelProviders.of(this).get(com.example.appsmovav01.ui.Trending.TrendingViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_trending, container, false)
 
         cargarLibros()
