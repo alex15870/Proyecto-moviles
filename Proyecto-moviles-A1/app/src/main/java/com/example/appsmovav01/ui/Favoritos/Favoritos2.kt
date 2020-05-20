@@ -56,15 +56,32 @@ class Favoritos2 : Fragment() {
 
     fun cargarLibros(){
 
-        /*val database = FirebaseDatabase.getInstance()
-        val myRef = database.getReference("Libro")
+        val database = FirebaseDatabase.getInstance()
+        val myRef = database.getReference("Favoritos").child("Libro")
 
         myRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
-                val value = dataSnapshot.getValue(String::class.java)
+                val value = dataSnapshot.getValue()
+                /*var data=dataSnapshot!!.children
+                data.forEach{
+                    favoritos.add(Favorito(it.getValue().toString()))
+                }*/
                 Log.d(TAG, "Value is: $value")
+                /*favoritos.add(
+                    Favorito( value.toString(),value.toString())
+                )*/
+
+                /*for (snapshot in dataSnapshot.children) {
+                    val users: Usuarios = snapshot.getValue(Usuarios::class.java)
+                    list_usuarios.add(users)
+                    Log.d(
+                        "users", users.getUser().toString() + "usename -> " +
+                                users.getEmail()
+                    )
+                }*/
+
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -72,7 +89,9 @@ class Favoritos2 : Fragment() {
                 Log.w(TAG, "Failed to read value.", error.toException())
             }
         })
-*/
+
+
+
         favoritos.add(
             Favorito(
                 "metro","prueba")
