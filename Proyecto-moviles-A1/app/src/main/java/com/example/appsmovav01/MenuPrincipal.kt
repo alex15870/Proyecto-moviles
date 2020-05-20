@@ -20,7 +20,8 @@ import kotlinx.android.synthetic.main.nav_header_menu_principal.view.*
 
 
 
-class MenuPrincipal : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MenuPrincipal : AppCompatActivity() {
+//, NavigationView.OnNavigationItemSelectedListener
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
@@ -32,7 +33,7 @@ class MenuPrincipal : AppCompatActivity(), NavigationView.OnNavigationItemSelect
 
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
-        /*val navController = findNavController(R.id.nav_host_fragment)
+        val navController = findNavController(R.id.nav_host_fragment)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
@@ -44,17 +45,9 @@ class MenuPrincipal : AppCompatActivity(), NavigationView.OnNavigationItemSelect
                 R.id.nav_search,
                 R.id.nav_logout
             ), drawerLayout
-        )*/
-        /*setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
-*/
-        val toggle = ActionBarDrawerToggle(
-            this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
         )
-        drawerLayout.addDrawerListener(toggle)
-        toggle.syncState()
-
-        navView.setNavigationItemSelectedListener(this)
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.setupWithNavController(navController)
 
         var bundle = intent.extras
         if(bundle != null){
@@ -62,6 +55,16 @@ class MenuPrincipal : AppCompatActivity(), NavigationView.OnNavigationItemSelect
 
             navView.getHeaderView(0).tv_usuario.setText(usuario)
         }
+
+        /*val toggle = ActionBarDrawerToggle(
+            this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
+        )
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+
+        navView.setNavigationItemSelectedListener(this)
+
+        */
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -75,7 +78,7 @@ class MenuPrincipal : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
-    override fun onBackPressed() {
+    /*override fun onBackPressed() {
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START)
@@ -121,6 +124,6 @@ class MenuPrincipal : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
-    }
+    }*/
 
 }
