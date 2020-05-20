@@ -7,6 +7,7 @@ import android.os.Environment
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.example.appsmovav01.ui.Favoritos.Favorito
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_detalle_libro.*
 import java.io.File
@@ -22,20 +23,27 @@ class DetalleLibro : AppCompatActivity() {
         val bundle = intent.extras
         var nombreLibro:String?=null
 
+        var header:String?=null
+
         if (bundle != null){
             iv_libro_imagen.setImageResource(bundle.getInt("header"))
             tv_nombre_libro.setText(bundle.getString("titulo"))
             tv_libro_desc.setText(bundle.getString("sinopsis"))
             nombreLibro = bundle.getString("titulo")
+            header = bundle.getString("sinopsis")
         }
 
         btn_guardar.setOnClickListener {
             val database = FirebaseDatabase.getInstance()
-            val myRef = database.getReference("Libro")
+            val myRef = database.getReference("Favoritos")
 
-            myRef.setValue(nombreLibro)
+            myRef.child("Libro").child(nombreLibro.toString()).setValue(header)
+
+            //myRef.setValue(nombreLibro)
             Toast.makeText(this,"Guardado con exito",Toast.LENGTH_SHORT).show()
         }
+
+
 
     }
 

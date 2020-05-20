@@ -3,6 +3,7 @@ package com.example.appsmovav01.ui.Trending
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +12,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.example.appsmovav01.DetalleLibro
 import com.example.appsmovav01.R
+import com.example.appsmovav01.ui.Favoritos.Favorito
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.core.Tag
 import kotlinx.android.synthetic.main.favoritos.view.*
 import kotlinx.android.synthetic.main.fragment_favorites.view.*
 import kotlinx.android.synthetic.main.fragment_trending.view.*
@@ -23,7 +29,11 @@ class Favoritos2 : Fragment() {
     private lateinit var favoritos2ViewModel: Favoritos2ViewModel
 
     var adapter: LibrosAdapter? = null
-    var libros = ArrayList<Libro>()
+    var favoritos = ArrayList<Favorito>()
+
+    companion object {
+        private const val TAG = "KotlinActivity"
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,8 +44,10 @@ class Favoritos2 : Fragment() {
             ViewModelProviders.of(this).get(Favoritos2ViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_favorites, container, false)
 
+
+
         cargarLibros()
-        adapter = LibrosAdapter(root.context, libros)
+        adapter = LibrosAdapter(root.context, favoritos)
         root.gridview.adapter = adapter
 
 
@@ -43,55 +55,52 @@ class Favoritos2 : Fragment() {
     }
 
     fun cargarLibros(){
-        //Cargar libros
-        libros.add(
-           Libro(
-                "Metro-2033",
-                R.mipmap.metro,
-                R.mipmap.metro,
-                "En 2013 hay una guerra nuclear y la población superviviente de Moscú decide resguardarse en el subsuelo, dentro de metro moscovita distribuyéndose por los kilómetros de estaciones y túneles. Cada estación se ha organizado socialmente con diferentes estructuras de poder como ciudades estado y se mantiene un cierto orden con diferentes alianzas entre ellas. "
-            )
+
+        /*val database = FirebaseDatabase.getInstance()
+        val myRef = database.getReference("Libro")
+
+        myRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                val value = dataSnapshot.getValue(String::class.java)
+                Log.d(TAG, "Value is: $value")
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException())
+            }
+        })
+*/
+        favoritos.add(
+            Favorito(
+                "metro","prueba")
         )
-        libros.add(
-            Libro(
-                "The fall of reach",
-                R.mipmap.reach,
-                R.mipmap.reach,
-                "La Caída de Reach tiene lugar en el universo de Halo entre el año 2517 hasta los eventos de 2552. En el universo Halo es posible viajar más rápido que la velocidad de la luz, a través del desliespacio; un espacio donde la relatividad especial no aplica. Esto permite a los humanos colonizar cientos de planetas, los cuales son administrados por el Mando Espacial de las Naciones Unidas (UNSC o MENU en español). Sintiéndose reprimidas por el régimen autoritario del UNSC, algunas colonias se rebelan. Por temor a que los rebeldes desintegren el Consejo de Seguridad, los altos mandos militares aprueban el Proyecto SPARTAN-II; un escuadrón secreto de súper soldados para reprimir discretamente la rebelión. "
-            )
-        )
-        libros.add(
-            Libro(
-                "Harry potter",
-                R.drawable.harrypotter,
-                R.drawable.harrypotter,
-                "La historia comienza con la celebración del mundo mágico. Durante muchos años, había sido aterrorizado por el malvado mago Lord Voldemort. La noche del 31 de octubre, mató a Lily y James Potter. Sin embargo, cuando intenta matar a su hijo de 1 año, Harry, la maldición asesina Avada Kedavra se vuelve sobre sí mismo. El cuerpo de Voldemort resulta destruido, pero él sobrevive: no está muerto ni vivo. Por su parte, a Harry solo le queda una cicatriz con forma de rayo en la frente que es el único remanente físico de la maldición de Voldemort. Harry es el único sobreviviente de la maldición asesina, y a raíz de la misteriosa derrota de Voldemort, el mundo mágico empieza a llamarlo como «el niño que sobrevivió». "
-            )
-        )
+
 
     }
 
     class LibrosAdapter: BaseAdapter {
-        var libros = ArrayList<Libro>()
+        var favoritos= ArrayList<Favorito>()
         var context: Context? = null
 
-        constructor(context: Context, libros: ArrayList<Libro>){
+        constructor(context: Context, favoritos: ArrayList<Favorito>){
             this.context = context
-            this.libros = libros
+            this.favoritos = favoritos
         }
 
         override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
-            var libro = libros[p0]
+            var libro = favoritos[p0]
             var inflator = context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as  LayoutInflater
             var vista = inflator.inflate(R.layout.favoritos, null)
             vista.tv_titulo.setText(libro.titulo)
-
             return vista
 
         }
 
         override fun getItem(p0: Int): Any {
-            return libros[p0]
+            return favoritos[p0]
         }
 
         override fun getItemId(p0: Int): Long {
@@ -99,7 +108,7 @@ class Favoritos2 : Fragment() {
         }
 
         override fun getCount(): Int {
-            return libros.size
+            return favoritos.size
         }
 }
 }

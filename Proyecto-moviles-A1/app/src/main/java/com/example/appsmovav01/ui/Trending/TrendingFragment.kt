@@ -92,9 +92,9 @@ class TrendingFragment : Fragment() {
                 intent.putExtra("image", libro.image)
                 intent.putExtra("header",libro.header)
                 val database = FirebaseDatabase.getInstance()
-                val myRef = database.getReference("Reciente")
+                val myRef = database.getReference("Recientes")
 
-                myRef.setValue(libro.titulo)
+                myRef.child("Libros").child(libro.titulo.toString()).setValue(libro.sinopsis)
                 context!!.startActivity(intent)
             }
 
