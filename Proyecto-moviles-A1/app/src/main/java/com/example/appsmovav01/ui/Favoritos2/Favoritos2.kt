@@ -12,10 +12,13 @@ import androidx.lifecycle.ViewModelProviders
 import com.example.appsmovav01.DetalleLibro
 import com.example.appsmovav01.R
 import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.favoritos.view.*
+import kotlinx.android.synthetic.main.fragment_favorites.view.*
 import kotlinx.android.synthetic.main.fragment_trending.view.*
 import kotlinx.android.synthetic.main.populares.view.*
+import kotlinx.android.synthetic.main.populares.view.tv_titulo
 
-class TrendingFragment : Fragment() {
+class Favoritos2 : Fragment() {
 
     private lateinit var favoritos2ViewModel: Favoritos2ViewModel
 
@@ -29,11 +32,11 @@ class TrendingFragment : Fragment() {
     ): View? {
         favoritos2ViewModel =
             ViewModelProviders.of(this).get(Favoritos2ViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_trending, container, false)
+        val root = inflater.inflate(R.layout.fragment_favorites, container, false)
 
         cargarLibros()
         adapter = LibrosAdapter(root.context, libros)
-        root.gridviewTrending.adapter = adapter
+        root.gridview.adapter = adapter
 
 
         return root
@@ -80,23 +83,8 @@ class TrendingFragment : Fragment() {
         override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
             var libro = libros[p0]
             var inflator = context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as  LayoutInflater
-            var vista = inflator.inflate(R.layout.populares, null)
-            vista.iv_libro.setImageResource(libro.image)
+            var vista = inflator.inflate(R.layout.favoritos, null)
             vista.tv_titulo.setText(libro.titulo)
-
-
-            vista.iv_libro.setOnClickListener{
-                var intent = Intent(context, DetalleLibro::class.java)
-                intent.putExtra("titulo", libro.titulo)
-                intent.putExtra("sinopsis", libro.sinopsis)
-                intent.putExtra("image", libro.image)
-                intent.putExtra("header",libro.header)
-                val database = FirebaseDatabase.getInstance()
-                val myRef = database.getReference("Reciente")
-
-                myRef.setValue(libro.titulo)
-                context!!.startActivity(intent)
-            }
 
             return vista
 

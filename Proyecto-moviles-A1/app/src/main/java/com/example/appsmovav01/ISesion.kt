@@ -13,7 +13,9 @@ import com.google.firebase.auth.FirebaseAuth
 
 class ISesion : AppCompatActivity() {
 
+    var email:String? =null
     var mAuth: FirebaseAuth? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,6 +70,7 @@ class ISesion : AppCompatActivity() {
             var intent = Intent(this, MenuPrincipal::class.java)
             //var intent2 = Intent(this, Profile::class.java)
             var correo = usuario.email
+            email=correo
             intent.putExtra("usuario",correo)
             //intent2.putExtra("usuario",correo)
             startActivity(intent)
