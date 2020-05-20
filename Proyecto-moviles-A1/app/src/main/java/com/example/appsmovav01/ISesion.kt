@@ -8,6 +8,7 @@ import kotlinx.android.synthetic.main.activity_face_login.*
 import kotlinx.android.synthetic.main.activity_i_sesion.*
 import kotlinx.android.synthetic.main.activity_principal.*
 import android.widget.Toast
+import com.example.appsmovav01.ui.profile.Profile
 import com.google.firebase.auth.FirebaseAuth
 
 class ISesion : AppCompatActivity() {
@@ -65,8 +66,10 @@ class ISesion : AppCompatActivity() {
 
         if(usuario != null){
             var intent = Intent(this, MenuPrincipal::class.java)
+            //var intent2 = Intent(this, Profile::class.java)
             var correo = usuario.email
             intent.putExtra("usuario",correo)
+            //intent2.putExtra("usuario",correo)
             startActivity(intent)
         }
     }

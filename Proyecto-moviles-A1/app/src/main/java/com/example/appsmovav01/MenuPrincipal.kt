@@ -16,6 +16,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.nav_header_menu_principal.view.*
 
 
@@ -54,6 +55,7 @@ class MenuPrincipal : AppCompatActivity() {
             var usuario = bundle.getString("usuario")
 
             navView.getHeaderView(0).tv_usuario.setText(usuario)
+            //txt_perfil.setText(usuario)
         }
 
         /*val toggle = ActionBarDrawerToggle(

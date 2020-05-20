@@ -10,7 +10,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.appsmovav01.AdaptadorNotas
 import com.example.appsmovav01.R
+import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.fragment_profile.view.*
+import kotlinx.android.synthetic.main.nav_header_menu_principal.view.*
 import java.io.*
 
 
@@ -36,6 +38,7 @@ class Profile : Fragment() {
         leerNotas()
         adaptador = AdaptadorNotas(root.context,notas)
         root.listview.adapter=adaptador
+
 
         return root
 

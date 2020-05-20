@@ -19,6 +19,7 @@
         app:civ_border_width="2dp" />
 
     <TextView
+        android:id="@+id/txt_perfil"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:text="Fernando Rodriguez"
