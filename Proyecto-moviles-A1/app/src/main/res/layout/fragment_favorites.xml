@@ -33,7 +33,7 @@
         android:background="@drawable/rounded_layout">
 
         <GridView
-            android:id="@+id/gridview"
+            android:id="@+id/gridviewFavs"
             android:layout_width="match_parent"
             android:layout_margin="25dp"
             android:layout_height="match_parent"

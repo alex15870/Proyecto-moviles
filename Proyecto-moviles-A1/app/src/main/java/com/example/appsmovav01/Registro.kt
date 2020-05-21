@@ -52,25 +52,12 @@ class Registro : AppCompatActivity() {
         mAuth?.createUserWithEmailAndPassword(correo, contra)
             ?.addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-
                     val user = mAuth?.getCurrentUser()
-
-                    Toast.makeText(
-                        this, "${user?.email} ha sido registrado exitosamente",
-                        Toast.LENGTH_LONG
-                    ).show()
+                    Toast.makeText(this, "${user?.email} ha sido registrado exitosamente", Toast.LENGTH_LONG).show()
                     finish()
-
                 } else {
-
-                    Toast.makeText(
-                        this, "Error al registrase.",
-                        Toast.LENGTH_SHORT
-                    ).show()
-
+                    Toast.makeText(this, "Error al registrase.", Toast.LENGTH_SHORT).show()
                 }
-
-
             }
     }
 

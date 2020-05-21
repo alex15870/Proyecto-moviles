@@ -22,10 +22,7 @@ class Pprincipal : AppCompatActivity() {
             startActivity(intent)
         })
 
-        btn_getstarted.setOnClickListener(View.OnClickListener {
-            var intent = Intent(this, GoogleLogin::class.java)
-            startActivity(intent)
-        })
+
 
         txt_registro.setOnClickListener(View.OnClickListener {
             var intent = Intent(this, Registro::class.java)

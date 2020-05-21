@@ -53,6 +53,8 @@ class MenuPrincipal : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)*/
 
+
+
         var bundle = intent.extras
         if(bundle != null){
             var usuario = bundle.getString("usuario")

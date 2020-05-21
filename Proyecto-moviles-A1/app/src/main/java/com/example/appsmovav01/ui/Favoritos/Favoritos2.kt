@@ -38,22 +38,14 @@ class Favoritos2 : Fragment() {
         private const val TAG = "KotlinActivity"
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        favoritos2ViewModel =
-            ViewModelProviders.of(this).get(Favoritos2ViewModel::class.java)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        favoritos2ViewModel = ViewModelProviders.of(this).get(Favoritos2ViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_favorites, container, false)
 
-
         cargaDatos()
-        cargarLibros()
-        adapter = LibrosAdapter(root.context, favoritos)
-        //prueba_texto.setText(prueba)
-        root.gridview.adapter = adapter
 
+        adapter = LibrosAdapter(root.context, favoritos)
+        root.gridviewFavs.adapter = adapter
 
         return root
     }
@@ -64,37 +56,14 @@ class Favoritos2 : Fragment() {
 
         myRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                /*val value = dataSnapshot.getValue()
-                Log.d(TAG, "Value is: $value?")
-                Log.d(TAG, "Number of messages: ${dataSnapshot.getValue()}")
-                dataSnapshot.children.forEach { child ->
-                    // Extract Message object from the DataSnapshot
-                    datos.add(child.getValue().toString())
-                }
-
-                if (dataSnapshot.exists()){
-                    var libro:String = dataSnapshot.getValue().toString()
-                    Log.d(TAG,"libro: "+libro)
-                    favoritos.add(
-                        Favorito(
-                            "Libro","prueba")
-                    )
-                }*/
 
                 for (postSnapshot in dataSnapshot.children) {
                     // TODO: handle the post
-                    //var nombreL : String = postSnapshot.getValue().toString()
                     Log.d(TAG,"libro: "+postSnapshot.getValue().toString())
-                    //datos.add(nombreL)
                     favoritos.add(Favorito("${postSnapshot.getValue()}","prueba"))
                     prueba=postSnapshot.getValue().toString()
+                    adapter?.notifyDataSetChanged()
                 }
-
-
-
-
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -104,24 +73,6 @@ class Favoritos2 : Fragment() {
         })
     }
 
-    fun cargarLibros(){
-
-
-
-        for (lista in datos){
-            favoritos.add(
-                Favorito(
-                    datos.toString(),"prueba")
-            )
-        }
-
-        favoritos.add(
-            Favorito(
-                "metro","prueba")
-        )
-
-
-    }
 
     class LibrosAdapter: BaseAdapter {
         var favoritos= ArrayList<Favorito>()
@@ -136,9 +87,10 @@ class Favoritos2 : Fragment() {
             var libro = favoritos[p0]
             var inflator = context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as  LayoutInflater
             var vista = inflator.inflate(R.layout.favoritos, null)
-            vista.tv_titulo.setText(libro.titulo)
-            return vista
+            vista.tv_titulo.text = libro.titulo.toString()
 
+
+            return vista
         }
 
         override fun getItem(p0: Int): Any {
@@ -152,6 +104,6 @@ class Favoritos2 : Fragment() {
         override fun getCount(): Int {
             return favoritos.size
         }
-}
+    }
 }
 
